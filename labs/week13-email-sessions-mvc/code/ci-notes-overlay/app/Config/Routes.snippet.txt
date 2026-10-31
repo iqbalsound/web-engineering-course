@@ -1,0 +1,3 @@
+$routes->get('notes', 'Notes::index');
+$routes->post('notes', 'Notes::store');
+$routes->post('notes/(:num)/delete', 'Notes::delete/$1');

@@ -1,0 +1,32 @@
+services:
+  db:
+    image: docker.io/library/mariadb:lts
+    environment:
+      MARIADB_DATABASE: shop
+      MARIADB_USER: shop_app
+      MARIADB_PASSWORD: "ChangeMe_2026!"
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/10-schema.sql:${MOUNT_OPTS}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  web:
+    build: ./web
+    ports:
+      - "127.0.0.1:8090:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: shop
+      DB_USER: shop_app
+      DB_PASS: "ChangeMe_2026!"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./app:/var/www/html:${MOUNT_OPTS}
+volumes:
+  dbdata:

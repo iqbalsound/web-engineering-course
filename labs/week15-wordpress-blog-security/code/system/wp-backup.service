@@ -1,0 +1,7 @@
+[Unit]
+Description=WordPress backup
+
+[Service]
+Type=oneshot
+Environment=WEBUSER=apache
+ExecStart=/usr/local/sbin/wp-backup.sh

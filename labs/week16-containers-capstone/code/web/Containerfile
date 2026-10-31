@@ -1,0 +1,4 @@
+FROM docker.io/library/php:8-apache
+RUN docker-php-ext-install pdo_mysql \
+ && a2enmod rewrite headers \
+ && { echo 'expose_php=0'; echo 'display_errors=0'; echo 'log_errors=1'; } > /usr/local/etc/php/conf.d/zz-app.ini

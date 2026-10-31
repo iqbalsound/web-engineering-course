@@ -1,0 +1,10 @@
+[Unit]
+Description=Mailpit mail catcher
+
+[Container]
+Image=docker.io/axllent/mailpit:latest
+PublishPort=127.0.0.1:8025:8025
+PublishPort=127.0.0.1:1025:1025
+
+[Install]
+WantedBy=default.target
