@@ -1,0 +1,2 @@
+# block direct web access to non-public folders (needs AllowOverride All from Lab 0)
+RedirectMatch 404 "/(vendor|src|config|storage|\.git)(/|$)"
