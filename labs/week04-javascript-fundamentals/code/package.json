@@ -1,0 +1,15 @@
+{
+  "name": "week04-expense-tracker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "lint": "eslint .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "@eslint/js": "latest",
+    "prettier": "latest"
+  }
+}
