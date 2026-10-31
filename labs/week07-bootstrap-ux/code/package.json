@@ -1,0 +1,17 @@
+{
+  "name": "week07-catalogue",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build --base=/week07/"
+  },
+  "dependencies": {
+    "bootstrap": "latest",
+    "@popperjs/core": "latest",
+    "bootstrap-icons": "latest"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  }
+}

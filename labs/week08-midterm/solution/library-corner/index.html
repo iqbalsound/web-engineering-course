@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library Corner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Library Corner</h1>
+    <nav aria-label="Primary"><a href="#search">Search</a> <a href="#books">Books</a></nav>
+  </header>
+  <main>
+    <section id="search">
+      <h2>Find a book</h2>
+      <form id="filter" action="#books" method="get">
+        <p><label for="q">Title</label> <input id="q" name="q" type="search" required></p>
+        <p><label for="max">Max price (Rs)</label> <input id="max" name="max" type="number" min="0" step="50"></p>
+        <button type="submit">Search</button>
+      </form>
+      <p id="count" role="status"></p>
+    </section>
+    <section id="books" class="grid">
+      <article class="card" data-price="1200"><h3>Clean Code</h3><p>Rs 1200</p></article>
+      <article class="card" data-price="900"><h3>Learning PHP</h3><p>Rs 900</p></article>
+      <article class="card" data-price="1500"><h3>Eloquent JavaScript</h3><p>Rs 1500</p></article>
+      <article class="card" data-price="700"><h3>HTML and CSS</h3><p>Rs 700</p></article>
+      <article class="card" data-price="1800"><h3>Linux Basics</h3><p>Rs 1800</p></article>
+      <article class="card" data-price="600"><h3>SQL in Ten Minutes</h3><p>Rs 600</p></article>
+    </section>
+  </main>
+  <footer><small>&copy; 2026 Library Corner</small></footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<main>
+  <h1>Courses</h1>
+  <input placeholder="Filter…" [ngModel]="query()" (ngModelChange)="query.set($event)">
+  <table>
+    <thead><tr><th>Code</th><th>Title</th><th>Credits</th></tr></thead>
+    <tbody>
+      @for (c of filtered(); track c.id) { <tr><td>{{ c.code }}</td><td>{{ c.title }}</td><td>{{ c.credits }}</td></tr> }
+      @empty { <tr><td colspan="3">No courses</td></tr> }
+    </tbody>
+    <tfoot><tr><td colspan="2">Total credits</td><td>{{ totalCredits() }}</td></tr></tfoot>
+  </table>
+  <h2>Add course</h2>
+  <input placeholder="Code" [(ngModel)]="draft.code" name="code">
+  <input placeholder="Title" [(ngModel)]="draft.title" name="title">
+  <input type="number" min="1" [(ngModel)]="draft.credits" name="credits">
+  <button (click)="add()">Add</button>
+</main>
