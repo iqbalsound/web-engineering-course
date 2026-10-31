@@ -1,0 +1,10 @@
+function flash(string $msg, string $type = 'info'): void { $_SESSION['flash'][] = [$type, $msg]; }
+function flash_show(): void {
+    foreach ($_SESSION['flash'] ?? [] as [$t, $m]) { echo '<p role="status" class="flash-' . e($t) . '">' . e($m) . '</p>'; }
+    unset($_SESSION['flash']);
+}
+function require_admin(): array {
+    $u = require_login();
+    if ($u['role'] !== 'admin') { http_response_code(403); exit('Forbidden'); }
+    return $u;
+}

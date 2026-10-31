@@ -1,0 +1,7 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; }
+header, main, footer { padding: 1rem; }
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.card { padding: 1rem; border: 1px solid #cbd5e1; border-radius: .5rem; transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px #0003; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }

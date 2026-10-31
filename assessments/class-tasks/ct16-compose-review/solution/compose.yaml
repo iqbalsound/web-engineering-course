@@ -1,0 +1,24 @@
+services:
+  db:
+    image: docker.io/library/mariadb:lts
+    environment:
+      MARIADB_DATABASE: app
+      MARIADB_USER: app
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8090:80"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  dbdata:

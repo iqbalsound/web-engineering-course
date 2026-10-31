@@ -1,0 +1,9 @@
+<form action="/join" method="post">
+  <p><label for="n">Name</label> <input id="n" name="name" required autocomplete="name"></p>
+  <p><label for="e">Email</label> <input id="e" name="email" type="email" required autocomplete="email"></p>
+  <p><label for="a">Age</label> <input id="a" name="age" type="number" min="10" max="99"></p>
+  <fieldset><legend>Level</legend>
+    <label><input type="radio" name="level" value="1" checked> Beginner</label>
+    <label><input type="radio" name="level" value="2"> Advanced</label></fieldset>
+  <button type="submit">Send</button>
+</form>

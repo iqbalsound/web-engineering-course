@@ -1,0 +1,8 @@
+$st = db()->prepare('SELECT id, password_hash FROM users WHERE email = ?');
+$st->execute([trim((string)($_POST['email'] ?? ''))]);
+$u = $st->fetch();
+if ($u && password_verify((string)($_POST['password'] ?? ''), $u['password_hash'])) {
+    session_regenerate_id(true);
+    $_SESSION['uid'] = (int)$u['id'];
+    redirect('products.php');
+}

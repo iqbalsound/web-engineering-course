@@ -1,0 +1,7 @@
+"settings": {
+  "color": { "palette": [ { "slug": "accent", "name": "Accent", "color": "#b45309" } ] },
+  "typography": { "fontSizes": [
+    { "slug": "small", "name": "Small", "size": "0.875rem" },
+    { "slug": "xl", "name": "Extra large", "size": "2rem" } ] }
+}
+// plugin: add_shortcode('year', fn(): string => esc_html(wp_date('Y')));
